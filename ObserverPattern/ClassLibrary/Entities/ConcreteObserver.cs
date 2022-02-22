@@ -9,15 +9,15 @@ namespace ClassLibrary.Entities
 {
     public class ConcreteObserver : IObserver
     {
-        private int counter = 0;
+        private int count = 0;
         public void upDate()
         {
-            counter = counter + 1;
+            count = count + 1;
         }
 
         public int GetCounter()
         {
-            return counter;
+            return count;
         }
     }
 }

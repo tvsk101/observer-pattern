@@ -9,12 +9,15 @@ namespace ClassLibrary.Entities
 {
     public class ConcreteSubject : ISubject
     {
-        private string name;
+        private string _state;
         private List<IObserver> observers = new List<IObserver>();
 
         public void NotifyOdserver()
         {
-            foreach (IObserver observer in observers) observer.upDate();
+            foreach (IObserver observer in observers)
+            {
+                observer.upDate();
+            }
         }
 
         public void RegisterObserver(IObserver observer)
@@ -29,12 +32,12 @@ namespace ClassLibrary.Entities
 
         public string GetState()
         {
-            return name;
+            return _state;
         }
 
-        public void SetState(string Name)
+        public void SetState(string StateName)
         {
-            name = Name;
+            _state = StateName;
             NotifyOdserver();
         }
     }
