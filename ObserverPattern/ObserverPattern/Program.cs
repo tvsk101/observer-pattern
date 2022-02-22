@@ -35,14 +35,5 @@ namespace ObserverPattern
 
             Console.ReadKey();
         }
-
-        private static void CounterInConsole(List<ConcreteObserver> observers)
-        {
-            foreach (ConcreteObserver observer in observers)
-            {
-                Console.Write(observer.GetCounter() + " ");
-            }
-            Console.WriteLine();
-        }
     }
 }
