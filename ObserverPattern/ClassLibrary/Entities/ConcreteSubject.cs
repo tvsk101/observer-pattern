@@ -12,7 +12,7 @@ namespace ClassLibrary.Entities
         private string _state;
         private List<IObserver> observers = new List<IObserver>();
 
-        public void NotifyOdserver()
+        public void NotifyObserver()
         {
             foreach (IObserver observer in observers)
             {
@@ -38,7 +38,7 @@ namespace ClassLibrary.Entities
         public void SetState(string StateName)
         {
             _state = StateName;
-            NotifyOdserver();
+            NotifyObserver();
         }
     }
 }

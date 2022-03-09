@@ -10,6 +10,6 @@ namespace ClassLibrary.Interfaces
     {
         void RegisterObserver(IObserver observer);
         void RemoveObserver(IObserver observer);
-        void NotifyOdserver();
+        void NotifyObserver();
     }
 }
