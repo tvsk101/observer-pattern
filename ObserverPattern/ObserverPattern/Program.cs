@@ -29,7 +29,7 @@ namespace ObserverPattern
 
 
             concreteSubject.RemoveObserver(concreteObserver2);
-            concreteSubject.SetState("Стостояние поновее");
+            concreteSubject.SetState("Состояние поновее");
             Console.WriteLine(concreteObserver1.GetCounter());
             Console.WriteLine(concreteObserver2.GetCounter());
 
