@@ -4,34 +4,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ClassLibrary.Entities;
+using ClassLibrary.Interfaces;
+using ClassLibrary.Subject;
+
 
 namespace ObserverPattern
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            ConcreteObserver concreteObserver1 = new ConcreteObserver();
-            ConcreteObserver concreteObserver2 = new ConcreteObserver();
-            ConcreteSubject concreteSubject = new ConcreteSubject();
+            WeatherData weatherData = new WeatherData();
+            CurrentConditionsDisplay currentConditionsDisplay = new CurrentConditionsDisplay();
+            ForecastDisplay forecastDisplay = new ForecastDisplay();
+            StatisticsDisplay statisticsDisplay = new StatisticsDisplay();
 
-            concreteSubject.RegisterObserver(concreteObserver1);
-            concreteSubject.SetState("Первое состояние");
-            Console.WriteLine(concreteObserver1.GetCounter());
-            Console.WriteLine(concreteObserver2.GetCounter());
-            Console.WriteLine();
+            List<IDisplayElement> displays = new List<IDisplayElement>()
+            {
+                currentConditionsDisplay,
+                forecastDisplay,
+                statisticsDisplay
+            };
 
-            concreteSubject.RegisterObserver(concreteObserver2);
-            concreteSubject.SetState("Новое состояние");
-            Console.WriteLine(concreteObserver1.GetCounter());
-            Console.WriteLine(concreteObserver2.GetCounter());
-            Console.WriteLine();
+            weatherData.RegisterObserver(currentConditionsDisplay);
+            weatherData.RegisterObserver(forecastDisplay);
+            weatherData.RegisterObserver(statisticsDisplay);
 
+            foreach (IDisplayElement observer in displays)
+            {
+                Console.WriteLine(observer.Display());
+            }
 
-            concreteSubject.RemoveObserver(concreteObserver2);
-            concreteSubject.SetState("Состояние поновее");
-            Console.WriteLine(concreteObserver1.GetCounter());
-            Console.WriteLine(concreteObserver2.GetCounter());
+            weatherData.MeasurementsChanged();
+
+            foreach (IDisplayElement observer in displays)
+            {
+                Console.WriteLine(observer.Display());
+            }
 
             Console.ReadKey();
         }

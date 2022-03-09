@@ -8,6 +8,6 @@ namespace ClassLibrary.Interfaces
 {
     public interface IObserver
     {
-        void UpDate();
+        void UpDate(Dictionary <string, float> WeatherPair);
     }
 }
