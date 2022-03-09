@@ -16,7 +16,7 @@ namespace ClassLibrary.Entities
         {
             foreach (IObserver observer in observers)
             {
-                observer.upDate();
+                observer.UpDate();
             }
         }
 
