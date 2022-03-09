@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary.Interfaces
 {
-    public interface IObserver
+    public interface IDisplayElement
     {
-        void UpDate();
+        string Display();
     }
 }

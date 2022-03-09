@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IDisplayElement.cs" />
     <Compile Include="Interfaces\ISubject.cs" />
     <Compile Include="Interfaces\IObserver.cs" />
     <Compile Include="Entities\ConcreteSubject.cs" />
